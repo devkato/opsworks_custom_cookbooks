@@ -7,7 +7,7 @@ node[:deploy].each do |application, deploy|
   end
 
   unless node[:opsworks][:instance][:hostname].index(deploy[:app_name])
-    Chef::Log.debug("[beenos] Skipping deploy::php application #{application} as it is not an target app")
+    Chef::Log.debug("Skipping deploy::php application #{application} as it is not an target app")
     next
   end
 

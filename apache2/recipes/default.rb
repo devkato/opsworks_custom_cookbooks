@@ -197,7 +197,7 @@ include_recipe 'apache2::logrotate'
 end
 
 # remove modules
-[ 'ssl.load', 'authz_default.load' ].each do |remove_module|
+[ 'authz_default.load' ].each do |remove_module|
   link remove_module do
     target_file "/etc/httpd/mods-enabled/#{remove_module}"
     to "/etc/httpd/mods-available/#{remove_module}"
