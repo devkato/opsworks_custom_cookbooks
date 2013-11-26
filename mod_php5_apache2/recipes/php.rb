@@ -6,11 +6,6 @@ node[:deploy].each do |application, deploy|
     next
   end
 
-  unless node[:opsworks][:instance][:hostname].index(deploy[:app_name])
-    Chef::Log.debug("Skipping deploy::php application #{application} as it is not an target app")
-    next
-  end
-
   web_app deploy[:application] do
     docroot deploy[:absolute_document_root]
     server_name deploy[:domains].first
