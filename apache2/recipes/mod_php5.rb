@@ -17,6 +17,14 @@
 # limitations under the License.
 #
 
+cookbook_file "htpasswd" do
+  owner   "apache"
+  group   "apache"
+  mode    "0755"
+  path    "/etc/httpd/htpasswd"
+  action  :create
+end
+
 case node[:platform]
 when 'debian', 'ubuntu'
   package 'libapache2-mod-php5' do
