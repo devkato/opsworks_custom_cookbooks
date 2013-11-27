@@ -189,7 +189,7 @@ include_recipe 'apache2::logrotate'
 
 
 # add modules
-[ 'authz_core.load', 'filter.load' ].each do |additional_module|
+[ 'authn_core.load', 'authz_core.load', 'filter.load' ].each do |additional_module|
   link additional_module do
     target_file "/etc/httpd/mods-enabled/#{additional_module}"
     to "/etc/httpd/mods-available/#{additional_module}"
